@@ -1,7 +1,19 @@
 //pokemon array
 let pokemonList = [
-    {name:'Bulbasaur', height:'0.7m', type:['Grass','Poison']}, 
-    {name:'Charmander', height:'0.6m', type:'Fire'}, 
-    {name:'Squirtle', height:'0.5m', type:'Water'},
-    {name:'Caterpie', height:'0.3m', type:'Bug'}
+    {name:'Bulbasaur', height: 0.7, type:['Grass','Poison']}, 
+    {name:'Charmander', height: 0.6, type:'Fire'}, 
+    {name:'Squirtle', height: 0.5, type:'Water'},
+    {name:'Caterpie', height: 0.3, type:'Bug'}
 ];
+
+let pokemonLarge = "Wow, that's big!";
+
+//loop pokemon name & height, conditional show large pokemon >= 0.7
+for (let i = 0; i < pokemonList.length; i++) {
+    if (pokemonList[i].height >= 0.7) {
+        document.write(pokemonList[i].name + " " + "(height: " + pokemonList[i].height + ") - " + (pokemonLarge) + "<br>");
+    } else {
+        document.write(pokemonList[i].name + " " + "(height: " + pokemonList[i].height + ")<br>")
+    }
+}
+
