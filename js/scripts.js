@@ -9,32 +9,44 @@ let pokemonRepository = (function () {
         { name: 'Caterpie', height: 0.3, type: 'Bug' }
     ];
 
-        function add(pokemon) {
-           if (
+    function add(pokemon) {
+        if (
             typeof pokemon === "object"
-           ) {
+        ) {
             pokemonList.push(pokemon);
-           }else {
+        } else {
             console.log("Pokemon is not correct!")
-           }        
         }
+    }
 
-        function getAll() {
-            return pokemonList;
-        }
+    function getAll() {
+        return pokemonList;
+    }
 
-        return {
-            add: add,
-            getAll: getAll
-        };
-    
-    })();
+    // create function & button for pokemonList
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listItem = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+        listItem.appendChild(button);
+        pokemonList.appendChild(listItem);
+    }
+
+    return {
+        add: add,
+        getAll: getAll,
+        addListItem: addListItem
+    };
+
+})();
 
 
 //forEach loop
-pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write("<p>" + pokemon.name + " " + "(height: " + pokemon.height + ")</p>");  
-    }
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon)
+}
 );
 
 
