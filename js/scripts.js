@@ -23,6 +23,12 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
+
+    // function to console log pokemon
+    function showDetails(pokemon) {
+        console.log(pokemon)
+    }
+
     // create function & button for pokemonList
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
@@ -32,6 +38,11 @@ let pokemonRepository = (function () {
         button.classList.add("button-class");
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
+
+    // event listener click and console log pokemon
+        button.addEventListener('click', function () {
+            showDetails(pokemon)
+        });
     }
 
     return {
@@ -41,6 +52,9 @@ let pokemonRepository = (function () {
     };
 
 })();
+
+
+
 
 
 //forEach loop
