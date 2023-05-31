@@ -76,17 +76,16 @@ let pokemonRepository = (function () {
         });
     }
 
-    function showModal(pokemon) {
+    function showModal(item) {
     pokemonRepository.loadDetails(item).then(function () {
       let modalTitle = document.querySelector(".modal-title");
-      modalTitle.innerText = pokemon.name;
+      modalTitle.innerText = item.name;
 
       let pokemonHeight = document.querySelector(".height");
       pokemonHeight.innerText = "Height: " + item.height;
 
       let modal = document.querySelector(".modal");
-      modal.classList.add("modal-is-visible");
-      modal.classList.remove("modal");
+      modal.classList.add("is-visible");
 
       let modalHeader= document.querySelector('.modal-title');
 
