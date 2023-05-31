@@ -88,12 +88,12 @@ let pokemonRepository = (function () {
       modal.classList.add("modal-is-visible");
       modal.classList.remove("modal");
 
-      let modalHeader= document.querySelector('.modal-header');
+      let modalHeader= document.querySelector('.modal-title');
 
       let modalCloseButton = document.createElement("button");
-      modalCloseButton.classList.add("btn");
+      modalCloseButton.classList.add("button-class");
       modalCloseButton.classList.add('modal-close');
-      
+
       modalHeader.append(modalCloseButton);
       modalCloseButton.innerText= 'x';
 
