@@ -1,7 +1,5 @@
 //pokemonList wrapped in IIFE
 let pokemonRepository = (function () {
-
-    //pokemonList empty array to push api list 
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
@@ -25,9 +23,11 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listItem = document.createElement("li");
+        
         let button = document.createElement("button");
         button.innerText = pokemon.name;
         button.classList.add("button-class");
+
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
         // event listener click and console log pokemon
@@ -72,9 +72,43 @@ let pokemonRepository = (function () {
 
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-            console.log(pokemon);
+            showModal(pokemon);
         });
     }
+
+    function showModal(pokemon) {
+    pokemonRepository.loadDetails(item).then(function () {
+      let modalTitle = document.querySelector(".modal-title");
+      modalTitle.innerText = pokemon.name;
+
+      let pokemonHeight = document.querySelector(".height");
+      pokemonHeight.innerText = "Height: " + item.height;
+
+      let modal = document.querySelector(".modal");
+      modal.classList.add("modal-is-visible");
+      modal.classList.remove("modal");
+
+      let modalHeader= document.querySelector('.modal-header');
+
+      let modalCloseButton = document.createElement("button");
+      modalCloseButton.classList.add("btn");
+      modalCloseButton.classList.add('modal-close');
+      
+      modalHeader.append(modalCloseButton);
+      modalCloseButton.innerText= 'x';
+
+      modalCloseButton.addEventListener("click", function () {
+        closeModal();
+      });
+    });
+
+    function closeModal() {
+      let modal = document.querySelector(".modal");
+      modal.classList.remove("modal-is-visible");
+      modal.classList.add('modal');
+    }
+  }
+        
 
     return {
         add: add,
@@ -82,7 +116,8 @@ let pokemonRepository = (function () {
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
-        showDetails: showDetails
+        showDetails: showDetails,
+        showModal: showModal
     };
 
 })();
