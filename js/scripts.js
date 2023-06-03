@@ -23,10 +23,11 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listItem = document.createElement("li");
+        listItem.classList.add("list-group-item");
 
         let button = document.createElement("button");
         button.innerText = pokemon.name;
-        button.classList.add("button-class");
+        button.classList.add("btn-primary");
 
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
@@ -86,7 +87,7 @@ let pokemonRepository = (function () {
         modal.classList.add("modal");
 
         let modalCloseButton = document.createElement("button");
-        modalCloseButton.classList.add('modal-close');
+        modalCloseButton.classList.add('btn-dark');
         modalCloseButton.innerText = 'x';
 
         let modalTitle = document.createElement('h1');
@@ -132,6 +133,7 @@ let pokemonRepository = (function () {
 
     }
 
+    
     function hideModal() {
         let modalContainer = document.querySelector("#modal-container");
         modalContainer.classList.remove('is-visible');
