@@ -34,17 +34,6 @@
     display: grid;
     text-align: center;
   } 
-
-  /* .modal {
-    margin: auto;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #fff;
-    padding: 15px;
-    width: 100%;
-    max-width: 700px;
-    text-align: left;
-  }  */
   
   .modal-close {
     float: right;
@@ -90,8 +79,6 @@
   z-index: 2;
   margin-top: 1rem;
   display: flex;
-  align-content: center;
-  justify-content: center;
 }
 
 .navbar-brand {
@@ -104,3 +91,4 @@
 .navbar-brand:hover {
   -webkit-text-stroke: 1px var(--accent-blue);
 }
+
